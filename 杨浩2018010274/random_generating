@@ -1,0 +1,22 @@
+"""
+ Author: Yang Hao
+ Purpose： generate random data into a set
+ Created: 4/19/2020
+"""
+import random
+import string
+
+
+def generate(elem_type, elem_num, elem_range, string_len=8):    # type of elem_range is list when elem_type is int/float
+    r = set()
+    for _ in range(elem_num):
+        if elem_type is int:
+            r.add(random.randint(elem_range[0], elem_range[1]))
+        elif elem_type is float:
+            r.add(random.uniform(elem_range[0], elem_range[1]))
+        elif elem_type is str:
+            r.add("".join(random.sample(elem_range, string_len)))
+    return r
+
+
+print(generate(float, 10, [2, 6]))
